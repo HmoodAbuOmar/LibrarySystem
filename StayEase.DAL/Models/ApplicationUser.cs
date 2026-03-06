@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace LibrarySystem.DAL.Models
+namespace StayEase.DAL.Models
 {
     public class ApplicationUser : IdentityUser
     {

@@ -1,4 +1,4 @@
-﻿namespace LibrarySystem.DAL.Models
+﻿namespace StayEase.DAL.Models
 {
     public class BaseModel
     {

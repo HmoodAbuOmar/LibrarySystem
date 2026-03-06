@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace LibrarySystem.DAL.Migrations
+namespace StayEase.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class identity : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

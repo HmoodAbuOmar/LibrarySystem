@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="StayEase.BLL/StayEase.BLL.csproj" />
+  <Project Path="StayEase.DAL/StayEase.DAL.csproj" />
+  <Project Path="StayEase.PL/StayEase.PL.csproj" />
+</Solution>

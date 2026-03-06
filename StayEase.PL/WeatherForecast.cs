@@ -1,4 +1,4 @@
-namespace LibrarySystem.PL
+namespace StayEase.PL
 {
     public class WeatherForecast
     {

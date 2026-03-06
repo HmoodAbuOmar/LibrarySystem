@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace LibrarySystem.PL.Controllers
+namespace StayEase.PL.Controllers
 {
     [ApiController]
     [Route("[controller]")]

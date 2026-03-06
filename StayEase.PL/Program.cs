@@ -1,13 +1,13 @@
 
-using LibrarySystem.DAL.Data;
-using LibrarySystem.DAL.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using StayEase.DAL.Data;
+using StayEase.DAL.Models;
 using System.Globalization;
 
-namespace LibrarySystem.PL
+namespace StayEase.PL
 {
     public class Program
     {
@@ -44,7 +44,7 @@ namespace LibrarySystem.PL
 
             });
 
-
+            builder.Services.AddSwaggerGen();
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -60,6 +60,8 @@ namespace LibrarySystem.PL
 
             if (app.Environment.IsDevelopment())
             {
+                app.UseSwagger();
+                app.UseSwaggerUI();
                 app.MapOpenApi();
             }
 

@@ -1,4 +1,4 @@
-﻿namespace LibrarySystem.PL.Resources
+﻿namespace StayEase.PL.Resources
 {
     public class SharedResource
     {

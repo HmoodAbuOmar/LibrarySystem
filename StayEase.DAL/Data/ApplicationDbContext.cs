@@ -1,15 +1,12 @@
-﻿using LibrarySystem.DAL.Models;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using StayEase.DAL.Models;
 
-namespace LibrarySystem.DAL.Data
+namespace StayEase.DAL.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Book> Books { get; set; }
-        public DbSet<CategoryTranlsation> CategoryTranlsations { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
          : base(options)
         {
