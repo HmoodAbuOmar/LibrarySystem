@@ -7,6 +7,11 @@ namespace StayEase.DAL.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+
+        public DbSet<Hotel> Hotels { get; set; }
+        public DbSet<Room> Rooms { get; set; }
+        public DbSet<HotelTranslation> HotelTranslations { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
          : base(options)
         {

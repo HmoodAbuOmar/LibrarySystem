@@ -3,8 +3,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using StayEase.BLL.Service;
 using StayEase.DAL.Data;
 using StayEase.DAL.Models;
+using StayEase.DAL.Repository;
 using System.Globalization;
 
 namespace StayEase.PL
@@ -45,6 +47,13 @@ namespace StayEase.PL
             });
 
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddScoped<IHotelRepository, HotelRepository>();
+
+            builder.Services.AddScoped<IHotelService, HotelService>();
+
+
+
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
