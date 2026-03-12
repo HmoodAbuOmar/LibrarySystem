@@ -1,0 +1,13 @@
+﻿using StayEase.DAL.DTO.Request;
+using StayEase.DAL.DTO.Response;
+
+namespace StayEase.BLL.Service
+{
+    public interface IAuthenticationService
+    {
+        Task<RegisterResponse> RegisterAsync(RegisterRequest request);
+        Task<LoginResponse> LoginAsync(LoginRequest request);
+        Task<bool> ConfirmEmailAsync(string token, string userId);
+
+    }
+}
