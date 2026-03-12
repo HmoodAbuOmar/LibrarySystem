@@ -361,3 +361,39 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+# Build folders
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userossc
+*.rsuser
+
+# Visual Studio
+.vs/
+
+# Rider / VS Code optional
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# NuGet packages folder if exists locally
+packages/
+
+# Publish output
+publish/
+
+# App secrets / local settings
+appsettings.Development.json
+
+# Environment files
+.env
+.env.*
+
+# OS files
+.DS_Store
+Thumbs.db
