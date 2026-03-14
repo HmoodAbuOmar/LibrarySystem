@@ -3,6 +3,8 @@
     public class HotelResponse
     {
         public int Id { get; set; }
-        public List<HotelTranslationsResponse> Translations { get; set; }
+        public int StarRating { get; set; }
+        public bool IsActive { get; set; } = true;
+        public ICollection<HotelTranslationsResponse> Translations { get; set; }
     }
 }

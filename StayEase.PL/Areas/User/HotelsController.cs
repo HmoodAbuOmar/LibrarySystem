@@ -5,7 +5,7 @@ using StayEase.PL.Resources;
 
 namespace StayEase.PL.Areas.User
 {
-    [Route("api/[controller]")]
+    [Route("api/user/[controller]")]
     [ApiController]
     public class HotelsController : ControllerBase
     {
@@ -19,16 +19,15 @@ namespace StayEase.PL.Areas.User
         }
 
         [HttpGet("")]
-        public IActionResult Index()
+        public async Task<IActionResult> GetActiveHotel()
         {
-            var response = _hotelService.GetAll();
-            return Ok(new
+            var response = await _hotelService.GetActiveHotelAsync();
+            if (response is null)
             {
-                message = _localizer["Success"].Value,
-                response
-            });
+                return NotFound(new { message = "No active hotel found" });
+            }
+            return Ok(response);
+
         }
-
-
     }
 }

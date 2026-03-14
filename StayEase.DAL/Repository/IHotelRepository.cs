@@ -4,7 +4,11 @@ namespace StayEase.DAL.Repository
 {
     public interface IHotelRepository
     {
-        public List<Hotel> GetAll();
-        public Hotel Create(Hotel request);
+        Task<List<Hotel>> GetAllAsync();
+        Task<Hotel> CreateAsync(Hotel request);
+        Task<Hotel?> FindByIdAsync(int id);
+        Task<Hotel> UpdateAsync(Hotel request);
+        Task DeleteAsync(Hotel reguest);
+        Task<List<Hotel>?> GetActiveHotelAsync();
     }
 }

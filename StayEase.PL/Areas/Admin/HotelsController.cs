@@ -7,6 +7,7 @@ using StayEase.PL.Resources;
 
 namespace StayEase.PL.Areas.Admin
 {
+    [Area("Admin")]
     [Route("api/Admin/[controller]")]
     [ApiController]
     [Authorize]
@@ -20,12 +21,65 @@ namespace StayEase.PL.Areas.Admin
             _hotelService = hotelService;
         }
 
-        [HttpPost("")]
-        public IActionResult Create(HotelRequest request)
+        [HttpGet("")]
+        public async Task<IActionResult> GetAllHotels()
         {
-            _hotelService.Create(request);
+            var response = await _hotelService.GetAll();
+            return Ok(new
+            {
+                message = _localizer["Success"].Value,
+                response
+            });
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetHotelById([FromRoute] int id)
+        {
+            var response = await _hotelService.GetById(id);
+
+            if (response is null)
+            {
+                return NotFound(new { message = "Hotel not found" });
+            }
+            return Ok(response);
+
+        }
+
+        [HttpPost("")]
+        public async Task<IActionResult> CreateHotel([FromBody] HotelRequest request)
+        {
+            await _hotelService.Create(request);
             return Ok(new { message = _localizer["Success"].Value });
         }
 
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> UpdateHotels([FromRoute] int id, [FromBody] HotelRequest request)
+        {
+            var result = await _hotelService.UpdateHotelAsync(id, request);
+            if (!result.Success)
+            {
+                if (result.Message.Contains("not found"))
+                {
+                    return NotFound(result);
+                }
+                return BadRequest(result);
+            }
+            return Ok(result);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteHotel([FromRoute] int id)
+        {
+            var result = await _hotelService.DeleteAsync(id);
+            if (!result.Success)
+            {
+                if (result.Message.Contains("not found"))
+                {
+                    return NotFound(result);
+                }
+                return BadRequest(result);
+            }
+            return Ok(result);
+        }
     }
 }

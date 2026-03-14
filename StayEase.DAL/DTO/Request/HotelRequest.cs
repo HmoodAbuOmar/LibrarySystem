@@ -2,6 +2,8 @@
 {
     public class HotelRequest
     {
-        public List<HotelTranslationsRequest> Translations { get; set; }
+        public int StarRating { get; set; }
+        public bool IsActive { get; set; } = true;
+        public ICollection<HotelTranslationsRequest> Translations { get; set; }
     }
 }
